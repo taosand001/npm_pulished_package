@@ -1,7 +1,7 @@
 name: legacy package file
 run-name: ${{ github.actor }} is checking out files
 on: 
-  push
+  push:
   pull_request:
     branches:
         - main
