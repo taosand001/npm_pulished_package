@@ -1,6 +1,6 @@
 {
   "name": "legacy_package",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "This is an npm package to do multipurpose stuffs",
   "main": "./build/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc && copyfiles ./build",
     "test": "npm run build && mocha ./build/**/*.js --no-timeouts",
     "prepare": "husky install",
-    "huskyPrecommit": "npx husky add .husky/pre-commit \"npm --no-git-tag-version version patch\"",
+    "huskyPrecommit": "npx husky add .husky/pre-commit \"npm run build\"",
     "publish_npm": "npm publish"
   },
   "keywords": [
