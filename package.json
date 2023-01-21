@@ -19,6 +19,7 @@
   "dependencies": {
     "chai": "^4.3.7",
     "copyfiles": "^2.4.1",
+    "husky": "^8.0.3",
     "mocha": "^10.2.0",
     "rimraf": "^4.1.1",
     "ts-node": "^10.9.1",
