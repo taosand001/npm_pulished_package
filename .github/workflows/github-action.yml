@@ -9,21 +9,21 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: install
-      - run: npm install
+        run: npm install
   build-package:
     runs-on: windows-latest
     steps:
       - name: build
-      - run: npm build
+        run: npm build
   test-functions:
     runs-on: windows-latest
     steps:
       - name: test
-      - run: npm test
+        run: npm test
   publish-package:
     runs-on: windows-latest
     steps:
       - name: publish
-      - run: npm publish_package   
+        run: npm publish_package   
 
     
