@@ -13,6 +13,7 @@ describe('check for functions', () => {
 
     it('should verify that substraction function works well', (done) => {
         expect(substraction(2, 5), 'Function is getting false result').to.eql(-3);
+        expect(substraction(2, 5), 'Function is getting false result').to.not.eql(8);
         done();
     })
 })
