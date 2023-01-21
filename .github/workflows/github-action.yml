@@ -25,9 +25,9 @@ jobs:
 
       - name: test
         run: npm run test
-        if: ${{ github.ref == 'refs/head/main'}}
       - name: publish
         run: npm publish --access public
+         if: ${{ github.ref == 'refs/head/main'}}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
