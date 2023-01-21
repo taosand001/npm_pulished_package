@@ -1,12 +1,14 @@
 {
   "name": "legacy_package",
-  "version": "1.0.11",
+  "version": "1.0.24",
   "description": "This is an npm package to do multipurpose stuffs",
   "main": "./build/index.js",
   "scripts": {
     "clean": "rimraf ./build",
     "build": "npm run clean && tsc && copyfiles ./build",
     "test": "npm run build && mocha ./build/**/*.js --no-timeouts",
+    "prepare": "husky install",
+    "addcommitBuild": "npx husky add .husky/pre-commit \"npm run build\"",
     "publish_npm": "npm publish"
   },
   "keywords": [
@@ -17,6 +19,7 @@
   "dependencies": {
     "chai": "^4.3.7",
     "copyfiles": "^2.4.1",
+    "husky": "^5.2.0",
     "mocha": "^10.2.0",
     "rimraf": "^4.1.1",
     "ts-node": "^10.9.1",
