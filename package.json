@@ -8,7 +8,7 @@
     "build": "npm run clean && tsc && copyfiles ./build",
     "test": "npm run build && mocha ./build/**/*.js --no-timeouts",
     "prepare": "husky install",
-    "huskyPrecommit": "npx husky add .husky/pre-commit \"npm run test\"",
+    "huskyPrecommit": "npx husky add .husky/pre-commit \"npm --no-git-tag-version version patch\"",
     "publish_npm": "npm publish"
   },
   "keywords": [
