@@ -15,12 +15,12 @@ jobs:
         run: npm install
    
       - name: build
-        run: npm build
+        run: npm run build
 
       - name: test
-        run: npm test
+        run: npm run test
 
       - name: publish
-        run: npm publish_package   
+        run: npm run publish_package   
 
     
