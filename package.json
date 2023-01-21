@@ -7,8 +7,7 @@
     "clean": "rimraf ./build",
     "build": "npm run clean && tsc && copyfiles ./build",
     "test": "npm run build && mocha ./build/**/*.js --no-timeouts",
-    "preversion": "npm version patch",
-    "publish": "npm run clean && npm run build && npm run preversion && npm publish"
+    "publish": "npm publish"
   },
   "keywords": [
     "calculator"
