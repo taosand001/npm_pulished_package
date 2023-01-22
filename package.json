@@ -1,6 +1,6 @@
 {
   "name": "legacy_package",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "This is an npm package to do multipurpose stuffs",
   "main": "./build/index.js",
   "scripts": {

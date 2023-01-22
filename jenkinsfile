@@ -8,18 +8,18 @@ pipeline{
         };
         stage("install"){
             steps{
-                sh "npm install"
+                powershell "npm install"
                 echo "dependencies has been installed"
             };
         }
         stage('build'){
             steps{
-                sh "npm run build"
+                powershell "npm run build"
             }
         }
         stage('test'){
             steps{
-                sh "npm run test"
+                powershell "npm run test"
             }
         }
         // stage('publish-npm'){
