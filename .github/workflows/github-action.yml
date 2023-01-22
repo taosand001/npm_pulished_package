@@ -2,8 +2,10 @@ name: legacy package file
 run-name: ${{ github.actor }} is checking out files
 on: 
   push:
+  pull_request:
     branches:
-      - main
+        - main
+    types: [opened, reopened]
 jobs:
   puplish-package:
     runs-on: windows-latest
@@ -23,9 +25,9 @@ jobs:
 
       - name: test
         run: npm run test
-
       - name: publish
         run: npm publish --access public
+        if: ${{ github.ref == 'refs/heads/main'}}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
