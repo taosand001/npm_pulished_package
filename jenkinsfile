@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label "node"
+        label: any
     }
     stages{
         stage("checkout"){
@@ -24,19 +24,19 @@ pipeline{
                 sh "npm run test"
             }
         }
-        stage('publish-npm'){
-            steps{
-                load "$JENKINS_HOME/jobvars.env"
-                withEnv(["TOKEN=${NPMJS_TOKEN}"]) {
-                    sh 'echo "//registry.nmpjs.org/:_authToken=${TOKEN}" >> ~/.npmrc'
-                    sh 'npm publish --access public'
-                }
-            }
-        }
+        // stage('publish-npm'){
+        //     steps{
+        //         load "$JENKINS_HOME/jobvars.env"
+        //         withEnv(["TOKEN=${NPMJS_TOKEN}"]) {
+        //             sh 'echo "//registry.nmpjs.org/:_authToken=${TOKEN}" >> ~/.npmrc'
+        //             sh 'npm publish --access public'
+        //         }
+        //     }
+        // }
     }
     post{
         success{
-            echo "========pipeline executed successfully ========"
+            echo "========pipeline executed successfully ======="
         }
         failure{
             echo "========pipeline execution failed======="
