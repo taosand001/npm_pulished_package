@@ -1,0 +1,45 @@
+pipeline{
+    agent{
+        label "node"
+    }
+    stages{
+        stage("checkout"){
+            steps{
+                git branch: 'main', credentialsId: 'dfd5db03-18a0-4ec6-abe7-5b862190c0cb', url: 'https://github.com/taosand1991/npm_pulished_package.git'
+            };
+        };
+        stage("install"){
+            steps{
+                sh "npm install"
+                echo "dependencies has been installed"
+            };
+        }
+        stage('build'){
+            steps{
+                sh "npm run build"
+            }
+        }
+        stage('test'){
+            steps{
+                sh "npm run test"
+            }
+        }
+        stage('publish-npm'){
+            steps{
+                load "$JENKINS_HOME/jobvars.env"
+                withEnv(["TOKEN=${NPMJS_TOKEN}"]) {
+                    sh 'echo "//registry.nmpjs.org/:_authToken=${TOKEN}" >> ~/.npmrc'
+                    sh 'npm publish --access public'
+                }
+            }
+        }
+    }
+    post{
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
